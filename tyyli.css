@@ -1,0 +1,106 @@
+#laatikko {
+    margin-top: -6.5px;
+    margin-left: 10%;
+    margin-right: 10%;
+   border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    padding: 30px;
+    background-color: rgba(237, 201, 175, 0.8);
+    text-align: center;
+}
+
+#img1 {
+    max-width: 75%;
+}
+
+#logo {
+    margin-left: 10%;
+}
+body {
+    position: relative;
+    background-image: url("background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#pipe {
+    position: absolute;
+    margin-left: 15%;
+    z-index:2;
+    max-width: 20%;
+}
+#mario {
+    position: relative;
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 6s;
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    z-index:1;
+    max-width: 15%;
+}
+
+
+/* Standard syntax */
+@keyframes example {
+0%{ transform:translateX(-300px);}
+
+    100%{ transform:translateX(290px);}
+}
+
+
+@media only screen and (max-width:1800px) {
+    @keyframes example {
+0%{ transform:translateX(-300px);}
+
+    100%{ transform:translateX(250px);}
+}
+
+
+@media only screen and (max-width:1600px) {
+    @keyframes example {
+0%{ transform:translateX(-300px);}
+
+    100%{ transform:translateX(200px);}
+}
+    
+
+@media only screen and (max-width:1300px) {
+    @keyframes example {
+0%{ transform:translateX(-250px);}
+
+    100%{ transform:translateX(150px);}
+}
+
+
+
+@media only screen and (max-width:1000px) {
+    @keyframes example {
+0%{ transform:translateX(-200px);}
+
+    100%{ transform:translateX(110px);}
+}
+
+@media only screen and (max-width: 600px) {
+    @keyframes example {
+0%{ transform:translateX(-200px);}
+
+    100%{ transform:translateX(70px);}
+}
+    #laatikko {
+        margin-top: -3px;
+    }
+}
+    
+    
+@media only screen and (max-width:400px) {
+    @keyframes example {
+0%{ transform:translateX(-100px);}
+
+    100%{ transform:translateX(45px);}
+}
+
+
+}
