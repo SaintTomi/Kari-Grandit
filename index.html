@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+        <title>Kysely</title>
+        <meta name="description" content="Kysely">
+        <link rel="stylesheet" href="tyyli.css">
+   <script language="javascript" type="text/javascript">
+var timerid = 0;
+var images = new Array(	"grandi2.png",
+			"grandi3.png");
+var countimages = 0;
+function startTime()
+{
+	if(timerid)
+	{
+		timerid = 0;
+	}
+	var tDate = new Date();
+	
+	if(countimages == images.length)
+	{
+		countimages = 0;
+	}
+	if(tDate.getSeconds() % 5 == 0)
+	{
+		document.getElementById("img1").src = images[countimages];
+	}
+	countimages++;
+	
+	timerid = setTimeout("startTime()", 500);
+}
+</script>
+<script>
+function pictureChange()
+{
+document.getElementById("mario").src="mario2.gif";
+}
+
+function varaus()
+    {
+        
+    }
+</script>
+    </head>
+  <body onload="startTime();">
+    <div id="logo">
+    <img id="img1" src="grandi3.png"/>
+    </div>
+      <div id="laatikko">
+<form id="lomake1">
+    Monettako vuotta opiskelet Haaga-Heliassa?<br>
+     <input type="number" placeholder="Vuosi" id="vuosi" name="nimi" required><br>
+        <br>Syötkö koulussa välipalaa?<br>
+    <input type="radio" id="vali"required><label>Kyllä</label><br>
+    <input type="radio" id="vali" required><label>Ei</label><br>
+        Ostatko juotavaa koulussa?<br>
+    <input type="radio" id="kahvi" required><label>Kyllä</label><br>
+    <input type="radio" id="kahvi"required><label>Ei</label><br>
+       Jos vastasit "kyllä", Kahvio vai automaatti?<br>
+    <input type="radio" id="automaatti" required><label>Kahvio</label><br>
+     <input type="radio" id="automaatti" required><label>Automaatti</label><br>
+    <input type="radio" id="automaatti" required><label>Kummatkin</label><br>
+    
+ 
+    <br>
+    <input type="button" value="Lähetä" onclick="varaus(); pictureChange();">
+</form>
+<img src="mariopipe.png" id="pipe">
+<img src="mario.gif" id="mario">
+
+          <p>
+        
+        </p>
+
+    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+
+            <script>
+            
+            
+        $.getJSON( "http://rottabonus.me:8080/kg/", function( data ) {
+            
+            
+            
+ var items = [];
+
+ $.each( data, function( key, d ) {
+     
+  items.push("<p>Kysymys: " + d.id + <br> + "</p>" );
+     items.push("<p>Kysymys: " + d.question + <br> + "</p>" );
+    
+ });
+ 
+ $( "<p/>", {
+   html: items.join( "" )
+   }).appendTo( "body" );
+ });
+
+            
+            
+        </script>
+
+        
+    </body>
+
+</html>
