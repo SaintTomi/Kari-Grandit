@@ -38,13 +38,11 @@ function startTime()
 function pictureChange()
 {
 document.getElementById("mario").src="mario2.gif";
-}
+    
 
-function varaus()
-    {
-        
-    }
-</script>
+} 
+        </script>
+       
     </head>
   <body onload="startTime();">
     <div id="logo">
@@ -54,33 +52,13 @@ function varaus()
 <form>
 <div id="lomake1"></div>
  <br>
-    <input type="button" value="Lähetä" onclick="varaus(); pictureChange();">
+    <button onclick="varaus()">Lähetä</button>
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 </script>
 
             <script>
-            
-            
-        $.getJSON( "http://rottabonus.me:8080/kg/", function( data ) {
-            
-            
-            
- var items = [];
-
- $.each( data, function( key, d ) {
-     
-  items.push("<p> Kysymys ID: " + d.id + 
-"<br>" + "Kysymys: " + d.question + "<br><input type='text'></p>" );
-    
- });
- 
- $( "<div/>", {
-   html: items.join( "" )
-   }).appendTo( "#lomake1" );
- });
-
-            
+         
             
         </script>
 <img src="mariopipe.png" id="pipe">
@@ -92,34 +70,128 @@ function varaus()
 
     </div>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-</script>
-
-            <script>
+ <script>
+              var lomakekentta= [];
             
-            
-        $.getJSON( "http://rottabonus.me:8080/kg/", function( data ) {
-            
-            
-            
+                
+        
+        $.getJSON("kysymykset.json", function( data ) {
  var items = [];
-
- $.each( data, function( key, d ) {
-     
-  items.push("<p>Kysymys: " + d.id + <br> + "</p>" );
-     items.push("<p>Kysymys: " + d.question + <br> + "</p>" );
+                  $.each(data, function(key,d){
+                      if(d.type == "text"){
+                          
+            items.push("<br>" + d.question +"<br>");
+            items.push("<input type=" + d.type +" id=" + d.id +"><br>");
+            lomakekentta.push(d.id);
+            
+       
+                  }
+                         
+                         if(d.type == "textarea"){
+                          
+                             items.push("<br>" + d.question +"<br>");
+            items.push("<textarea id=" + d.id +"></textarea><br>");
+            lomakekentta.push(d.id);
+                  }
+                      
+                        if(d.type == "radio"){
+                          
+            items.push("<span class=sana>" +"<br>" + d.question +"</span><br>");
+                            for (i = 0; i < d.value.length; i++){
+            items.push("<input type=" + d.type +" id=" + d.id +" name="+d.id+" value="+d.value[i] + ">" +d.value[i] + "<br>");
+            lomakekentta.push(d.id);                
+            
+                  }
+                        }
+                      
+            if(d.type == "checkbox"){
+                          
+            items.push("<span class=sana>" +"<br>" + d.question +"</span><br>");
+                 for (i = 0; i < d.value.length; i++){
+            items.push("<input type=" + d.type +" id=" + d.id +">"+d.value[i] + "<br>");
+            lomakekentta.push(d.id);
+                  }          
+            }
+                        if(d.type == "number"){
+                          
+            items.push("<span class=sana>" +"<br>" + d.question +"</span><br>");
+                 for (i = 0; i < d.value.length; i++){
+            items.push("<input type=" + d.type +" id=" + d.id +">" + "<br>");
+            lomakekentta.push(d.id);
+                  }          
+            }
+                     
+                      
     
  });
  
- $( "<p/>", {
+ $( "<div/>", {
    html: items.join( "" )
-   }).appendTo( "body" );
+   }).appendTo( "#lomake1" );
  });
+     
+     
+function varaus(){
+    
+    var lahetys= [];
+    for (i = 0; i < lomakekentta.length; i++) {
+        
 
+type=document.getElementById(lomakekentta[i]).type;
+        
+        if(type == "text"){
+            vastaus=document.getElementById(lomakekentta[i]).value;
             
+        }
+        
+        
+        
+        
+        if(type == "radio"){
+            var radios = document.getElementsByName(lomakekentta[i]);
+         for (var x = 0, length = radios.length; x < length; x++){
+        if (radios[x].checked){ 
+               vastaus=radios[x].value;
             
-        </script>
+             }
+        }
+
+        
+        }
+        
+        
+        
+        
+         if(type == "number"){
+              vastaus=document.getElementById(lomakekentta[i]).value;
+            
+             
+         }
+        
+lahetys.push(" id=" + lomakekentta[i] +":" + vastaus+ "><br>");
+ }
+
+      jsonData=lahetys.join(" ");
+    console.log(JSON.stringify(data));
+    var myJSON = JSON.stringify(jsonData);
+alert(myJSON);
+  
+  
+    
+
+$.ajax({
+ url: 'https://www.mocky.io/v2/omakoodi',
+ type: 'POST',
+ dataType: 'json',
+ data: jsonData, 
+ success: function() { alert('POST completed. Data:' + myJSON)}
+});
+
+
+    
+}  
+     
+</script>
 
         
     </body>

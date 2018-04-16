@@ -1,0 +1,86 @@
+[
+    {
+        "id":1,
+        "question":"Monettako vuotta opiskelet Haaga-Heliassa?",
+        "type": "number",
+        "value": [""]
+    },
+    
+    {
+        "id":2,
+        "question": "Ostatko koulussa virvokkeita?",
+        "type": "radio",
+        "value": ["Limukoneista?", "Kahviosta?", "Käytän molempia.", "En osta."]
+        
+    },
+    {
+        
+        "id": 3,
+        "question": "Miksi valitset limukoneet?",
+        "type": "radio",
+        "value": ["Saan kaiken tarvitsemani koneesta", "Ei tarvitse mennä kahvioon asti"]
+        
+    },
+    
+    {
+        
+        
+        "id": 4,
+        "question": "Onko koneita riittävästi ja onko ne sijoitettu hyvin?",
+        "type": "radio",
+        "value": ["Koneita on riittävästi ja ne on sijoitettu hyvin.", "Ei, koneita voisi olla enemmän ja niiden sijoittamista voisi suunitella uudelleen.", "Koneita on riitävästi, mutta ne voisi sijoittaa hyödyllisemmin.", "Koneita ei ole riittävästi, mutta tämän hetkiset sijainnit ovat käytännölliset"]
+    },
+    
+    {
+        "id": 5,
+        "question": "Käyttäisitkö juoma-automaatteja jos niistä saisi muutakin kuin limsaa ja energiajuomia?",
+        "type": "radio",
+        "value": ["Kyllä", "En"]
+        
+    },
+    
+    {
+        "id": 6,
+        "question": "Miksi käytät kahviota?",
+        "type": "radio",
+        "value": ["Parempi valikoima.", "Saan asiakaspalvelua"]
+    },
+    
+    {
+        "id": 7,
+        "question": "Toivoisitko laajempaa valikoimaa kahvioon?",
+        "type": "radio",
+        "value": ["Kyllä", "En"]
+        
+    },
+    
+    {
+        "id": 8,
+        "question": "Mitä haluaisit lisätä kahvilan valikoimaan?",
+        "type": "text",
+        "value": ""
+    },
+    
+    {
+        "id": 9,
+        "question": "Onko kahviossa asioiminen nopeaa?",
+        "type": "radio",
+        "value": ["Kyllä", "Ei"]
+    }
+    
+
+    
+            
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+]
