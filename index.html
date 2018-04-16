@@ -52,7 +52,7 @@ document.getElementById("mario").src="mario2.gif";
 <form>
 <div id="lomake1"></div>
  <br>
-    <button onclick="varaus()">Lähetä</button>
+<button onclick="varaus()" style="margin-left: 10%">Lähetä</button>
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 </script>
@@ -61,8 +61,6 @@ document.getElementById("mario").src="mario2.gif";
          
             
         </script>
-<img src="mariopipe.png" id="pipe">
-<img src="mario.gif" id="mario">
 
           <p>
         
@@ -98,7 +96,7 @@ document.getElementById("mario").src="mario2.gif";
                           
             items.push("<span class=sana>" +"<br>" + d.question +"</span><br>");
                             for (i = 0; i < d.value.length; i++){
-            items.push("<input type=" + d.type +" id=" + d.id +" name="+d.id+" value="+d.value[i] + ">" +d.value[i] + "<br>");
+            items.push("<label class=container>" + "<input type=" + d.type + " id=" + d.id +" name="+d.id+" value="+d.value[i] + ">" +d.value[i] + "<span class=checkmark></span>" + "</label>");
             lomakekentta.push(d.id);                
             
                   }
