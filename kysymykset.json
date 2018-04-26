@@ -1,86 +1,41 @@
-[
-    {
-        "id":1,
-        "question":"Monettako vuotta opiskelet Haaga-Heliassa?",
-        "type": "number",
-        "value": [""]
-    },
-    
-    {
-        "id":2,
-        "question": "Ostatko koulussa virvokkeita?",
-        "type": "radio",
-        "value": ["Limukoneista?", "Kahviosta?", "Käytän molempia.", "En osta."]
-        
-    },
-    {
-        
-        "id": 3,
-        "question": "Miksi valitset limukoneet?",
-        "type": "radio",
-        "value": ["Saan kaiken tarvitsemani koneesta", "Ei tarvitse mennä kahvioon asti"]
-        
-    },
-    
-    {
-        
-        
-        "id": 4,
-        "question": "Onko koneita riittävästi ja onko ne sijoitettu hyvin?",
-        "type": "radio",
-        "value": ["Koneita on riittävästi ja ne on sijoitettu hyvin.", "Ei, koneita voisi olla enemmän ja niiden sijoittamista voisi suunitella uudelleen.", "Koneita on riitävästi, mutta ne voisi sijoittaa hyödyllisemmin.", "Koneita ei ole riittävästi, mutta tämän hetkiset sijainnit ovat käytännölliset"]
-    },
-    
-    {
-        "id": 5,
-        "question": "Käyttäisitkö juoma-automaatteja jos niistä saisi muutakin kuin limsaa ja energiajuomia?",
-        "type": "radio",
-        "value": ["Kyllä", "En"]
-        
-    },
-    
-    {
-        "id": 6,
-        "question": "Miksi käytät kahviota?",
-        "type": "radio",
-        "value": ["Parempi valikoima.", "Saan asiakaspalvelua"]
-    },
-    
-    {
-        "id": 7,
-        "question": "Toivoisitko laajempaa valikoimaa kahvioon?",
-        "type": "radio",
-        "value": ["Kyllä", "En"]
-        
-    },
-    
-    {
-        "id": 8,
-        "question": "Mitä haluaisit lisätä kahvilan valikoimaan?",
-        "type": "text",
-        "value": ""
-    },
-    
-    {
-        "id": 9,
-        "question": "Onko kahviossa asioiminen nopeaa?",
-        "type": "radio",
-        "value": ["Kyllä", "Ei"]
-    }
-    
-
-    
-            
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-]
+[{"question_id":12,
+  "question":"Monettako vuotta opiskelet haaga-heliassa?",
+  "question_type":"avoin",
+"value": " "},
+  
+ 
+ {"question_id":13,
+  "question":"Ostatko koulussa virvokkeita?",
+  "question_type":"monivalinta"
+  },
+ 
+ {"question_id":14,
+  "question":"Miksi valitset limukoneet?",
+  "question_type":"monivalinta"
+ 
+  },
+ 
+ {"question_id":15,
+  "question":"Onko koneita riittävästi ja onko ne sijoitettu hyvin?",
+  "question_type":"monivalinta"
+  },
+ 
+ {"question_id":16,
+  "question":"Käyttäisitkö juoma-automaatteja jos niistä saisi muutakin kuin limsaa ja energiajuomia?",
+  "question_type":"monivalinta"
+  },
+ 
+ {"question_id":17,
+  "question":"Miksi käytät kahviota?",
+  "question_type":"monivalinta"
+  },
+ 
+ 
+ {"question_id":18,
+  "question":"Toivoisitko laajempaa valikoimaa kahvioon?",
+  "question_type":"monivalinta"
+  },
+ {"question_id":19,
+  "question":"Onko kahviossa asioiminen nopeaa?",
+  "question_type":"monivalinta"
+}]

@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html>
     
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width-device-width, initial-scale=1">
+        
         <title>Kysely</title>
         <meta name="description" content="Kysely">
         <link rel="stylesheet" href="tyyli.css">
@@ -52,7 +53,7 @@ document.getElementById("mario").src="mario2.gif";
 <form>
 <div id="lomake1"></div>
  <br>
-    <button onclick="varaus()">Lähetä</button>
+<input type="button" onclick="varaus()" style="margin-left: 10%" value="Lähetä">
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 </script>
@@ -61,8 +62,6 @@ document.getElementById("mario").src="mario2.gif";
          
             
         </script>
-<img src="mariopipe.png" id="pipe">
-<img src="mario.gif" id="mario">
 
           <p>
         
@@ -75,7 +74,7 @@ document.getElementById("mario").src="mario2.gif";
             
                 
         
-        $.getJSON("kysymykset.json", function( data ) {
+        $.getJSON("http://167.99.253.212:8080/ohjelmistoprojekti/questions/team/2", function( data ) {
  var items = [];
                   $.each(data, function(key,d){
                       if(d.type == "text"){
@@ -87,22 +86,29 @@ document.getElementById("mario").src="mario2.gif";
        
                   }
                          
-                         if(d.type == "textarea"){
+                         if(d.question_type == "avoin"){
                           
                              items.push("<br>" + d.question +"<br>");
-            items.push("<textarea id=" + d.id +"></textarea><br>");
-            lomakekentta.push(d.id);
+            items.push("<textarea id=" + d.question_id +"></textarea><br>");
+            lomakekentta.push(d.question_id);
                   }
                       
-                        if(d.type == "radio"){
+                        if(d.type == "monivalinta"){
                           
             items.push("<span class=sana>" +"<br>" + d.question +"</span><br>");
                             for (i = 0; i < d.value.length; i++){
-            items.push("<input type=" + d.type +" id=" + d.id +" name="+d.id+" value="+d.value[i] + ">" +d.value[i] + "<br>");
+            items.push("<label class=container>" + "<input type=" + d.type + " id=" + d.id +" name="+d.id+" value="+d.value[i] + ">" +d.value[i] + "<span class=checkmark></span>" + "</label>");
             lomakekentta.push(d.id);                
             
                   }
                         }
+                      
+               if(d.question_type == "monivalinta"){
+                          
+                             items.push("<br>" + d.question +"<br>");
+            items.push("<textarea id=" + d.question_id +"></textarea><br>");
+            lomakekentta.push(d.question_id);
+                  }
                       
             if(d.type == "checkbox"){
                           
@@ -134,10 +140,13 @@ document.getElementById("mario").src="mario2.gif";
 function varaus(){
     
     var lahetys= [];
+     lahetys.push("[");
     for (i = 0; i < lomakekentta.length; i++) {
         
 
 type=document.getElementById(lomakekentta[i]).type;
+        
+       
         
         if(type == "text"){
             vastaus=document.getElementById(lomakekentta[i]).value;
@@ -145,7 +154,12 @@ type=document.getElementById(lomakekentta[i]).type;
         }
         
         
-        
+        if (type == "avoin"){
+            
+            vastaus=document.getElementById(lomakekentta[i].value);
+            
+           
+        }
         
         if(type == "radio"){
             var radios = document.getElementsByName(lomakekentta[i]);
@@ -168,27 +182,45 @@ type=document.getElementById(lomakekentta[i]).type;
              
          }
         
-lahetys.push(" id=" + lomakekentta[i] +":" + vastaus+ "><br>");
- }
-
-      jsonData=lahetys.join(" ");
-    console.log(JSON.stringify(data));
+       
+  var vastaus=
+      
+      document.getElementById(lomakekentta[i]).value; 
+        if (i<=6){
+        lahetys.push("{"+'"answer"'+ ':"' + vastaus+'"}' + ",");
+        }
+        else {
+            lahetys.push("{"+'"answer"'+ ':"' + vastaus+'"}');
+        }
+     }        
+     lahetys.push("]");
+    jsonData=lahetys.join("");
     var myJSON = JSON.stringify(jsonData);
-alert(myJSON);
+alert(jsonData);
+var info = [];
   
-  
-    
 
 $.ajax({
- url: 'https://www.mocky.io/v2/omakoodi',
+ url: 'http://167.99.253.212:8080/ohjelmistoprojekti/answers/team/2',
  type: 'POST',
  dataType: 'json',
+contentType: 'application/json',
  data: jsonData, 
- success: function() { alert('POST completed. Data:' + myJSON)}
+ success: function() {
+    alert('POST completed. Data:' + jsonData)
+},
+
+    error: function(XMLHttpRequest, textStatus, errorThrown) {
+        alert(textStatus);
+        alert(errorThrown);
+        alert("Status: " + XMLHttpRequest.status);
+    }
+
+
 });
 
 
-    
+     
 }  
      
 </script>
