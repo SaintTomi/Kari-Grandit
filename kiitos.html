@@ -1,0 +1,57 @@
+<html>
+    <head>
+          <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+        <title>Kysely</title>
+        <meta name="description" content="Kysely">
+        <link rel="stylesheet" href="kiitostyyli.css">
+   <script language="javascript" type="text/javascript">
+var timerid = 0;
+var images = new Array(	"grandikiitos1.png",
+			"grandikiitos2.png");
+var countimages = 0;
+function startTime()
+{
+	if(timerid)
+	{
+		timerid = 0;
+	}
+	var tDate = new Date();
+	
+	if(countimages == images.length)
+	{
+		countimages = 0;
+	}
+	if(tDate.getSeconds() % 5 == 0)
+	{
+		document.getElementById("img1").src = images[countimages];
+	}
+	countimages++;
+	
+	timerid = setTimeout("startTime()", 500);
+}
+</script>
+    </head>
+    <div id="music" style="visibility:hidden"><embed src="sankari2.mp3" autostart=true loop=false></div>
+    
+     <body onload="startTime();">
+         
+         <div id="container">
+             <p></p>
+        <img id="img1" src="grandikiitos1.png"/>
+        <div id="box"></div>
+         
+             <div class="button"><button id="button1"><a href="index2.html" style="color: white"> Palaa kyselyyn</a></button>
+             
+             
+            <button id="button2"><a href="index2.html" style="color: white">Katso vastaus tilastoja</a></button>
+             </div>
+                 
+             </div> 
+         <script>
+             
+                 
+         </script>>
+    </body>
+</html>
